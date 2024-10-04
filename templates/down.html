@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='..css/style1.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css"/>
+
+    <style>
+table.table{
+    margin:auto;
+    width:1300px;
+    font-size:20px;
+}
+
+
+
+    .tab-container {
+
+}
+
+.tab-list {
+  display: flex;
+  border: 1px solid #ccc;
+}
+
+.tab {
+  display: flex;
+  flex: 1;
+margin:auto;
+  color: #333;
+  border-right: 1px solid #ccc;
+  padding: 1em;
+
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab.current {
+  background-color: #00CC99;
+  color: #fff;
+}
+
+.content-box {
+  width: 1000px;
+  color: #333;
+  margin:0 auto;
+}
+
+ table.table th.col1{
+    width:200px;
+        }
+
+        .youtu{
+        text-align:center;
+
+
+        }
+</style>
+</head>
+   <body>
+
+   <div class="youtu">
+   <iframe width="600" height="500" src=https://www.youtube.com/embed/{{id}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+  <br>
+
+ <table class="table">
+    <tr>
+      <td>動画名</td>
+      <td>{{titles}}</td>
+    </tr>
+    <tr>
+      <td>視聴回数</td>
+      <td>{{views}}回</td>
+    </tr>
+     <tr>
+      <td>動画長さ</td>
+      <td>{{nagasa}}</td>
+    </tr>
+     <tr>
+      <td>詳細情報</td>
+      <td>{{shousai}}</td>
+    </tr>
+     <tr>
+         <td>公開日</td>
+         <td>{{koukai}}</td>
+     </tr>
+     <tr>
+         <td>チャンネルID</td>
+         <td>{{chanids}}</td>
+     </tr>
+     <tr>
+         <td>動画の収益</td>
+         <td>約￥{{mone}}</td>
+     </tr>
+     <tr>
+         <td>チャンネル名</td>
+         <td><a href={{chan}}>{{auth}}</a></td>
+     </tr>
+     <tr>
+         <td>評価</td>
+         <td>
+             <form action="/hyouka_toukou" method="POST" enctype="multipart/form-data">
+         <select name="n2">
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+         </select>
+                 <select name="n3">
+             <option value={{auth}}>{{auth}}</option>
+         </select>
+                     <button class="btn-primary" type="submit">評価投稿</button>
+             </form>
+         </td>
+     </tr>
+  </table>
+   </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ダウンロード完了画面</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+<style>
+    table.table{
+    margin:auto;
+
+    }
+
+
+</style>
+</head>
+<body>
+     <table class="table">
+              <thead>
+                    <th scope="col">サムネイル</th>
+              </thead>
+  <tbody>
+
+
+{% for i in dirs %}
+<tr>
+
+    <td><a href="{{ url_for('static', filename=i)}}" data-lightbox="lightbox" data-title="画像のタイトル"><img src = "{{ url_for('static', filename=i)}}" width="400" height="300" data-lightbox="demo-title" data-title="画像のタイトル"></a></td>
+
+</tr>
+    {% endfor %}
+  </tbody>
+     </table>
+</body>
+</html>

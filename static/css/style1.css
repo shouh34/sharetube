@@ -1,0 +1,83 @@
+
+
+        #hed{
+        font-size:20px;
+        color:white;
+        background-color:red;
+        text-align:left;
+        }
+        ul{
+        display: inline;
+        list-style: none;
+
+        }
+
+
+        #hoge1{
+        margin-left:800px;
+        width:700px;
+        }
+
+
+        a{
+        font-size:20px;
+        margin-right:10px;
+        font-family: "游ゴシック", "YuGothic", "メイリオ", meiryo, sans-serif;
+        }
+
+        a.btn:hover {
+        background: #0c9;
+        transition: .5s ease-out;
+        }
+
+
+
+nav li{
+display: inline-block;
+width: 140px;
+color:white;
+
+}
+nav a{
+text-decoration: none;
+color:white;
+text-align:right;
+}
+nav a:hover{
+color:#F7CB4D;
+border-bottom:2px solid #F7CB4D;
+}
+button.btn-primary{
+    width:150px;
+    height:50px;
+    margin-left:300px;
+    border-radius: 100px;
+}
+
+
+
+img{
+    text-align:left;
+
+}
+
+input.form-control{
+    width:400px;
+
+
+}
+
+
+
+
+.main{
+width:400px;
+
+}
+
+tr:hover{
+   margin:auto;
+   background-color: #d9efff;
+   }
+
+
