@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="/Live_comentget" method="POST">
+
+<ul>
+    <li> <img src="{{ url_for('static', filename='/images/youtube.png')}}" width="100" height="80" alt=""></li>
+    <li><a href="site_view">サイトの紹介</a></li>
+    <li><a href="{{ url_for('Live') }}">ライブ配信</a></li>
+    <li><a href="{{ url_for('henshu') }}">動画編集</a></li>
+<li><a href="">閲覧履歴</a></li>
+        <li><a href="">設定</a></li>
+    <li><input type="text" class="form-control" width="300" id="hoge" name="liveid" placeholder="動画のURL又はキーワードを入力してください"></li>
+<li><button class="btn-primary" type="submit">検索</button></li>
+</ul>
+
+</form>
+
+</body>
+</html>

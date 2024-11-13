@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+      <link rel="canonical" href="https://getbootstrap.jp/docs/5.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+.main{
+text-align:center;
+}
+img#img2{
+    margin-left:500px;
+
+
+}
+
+table.col{
+
+width:200px;
+}
+
+table.table{
+margin-top:50px;
+}
+li{
+list-style:none;
+text-align:right;
+margin-left:30px;
+}
+ul{
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  background-color:red;
+  height:100px;
+}
+
+
+
+nav li{
+list-style: none;
+display: inline-block;
+text-align:right;
+}
+nav li:not(:last-child){
+border-right:2px solid #ddd;
+}
+nav a{
+text-decoration: none;
+color:white;
+text-align:right;
+}
+nav a:hover{
+color:#F7CB4D;
+border-bottom:2px solid #F7CB4D;
+}
+
+
+input.form-control{
+    width:500px;
+    margin-left:300px;
+
+}
+
+button.btn-primary{
+width:200px;
+
+
+}
+    </style>
+    <title>Title</title>
+</head>
+
+<body>
+<form action="/search" method="POST">
+
+<ul>
+    <li> <img src="{{ url_for('static', filename='/images/youtube.png')}}" width="100" height="80" alt=""></li>
+    <li><a href="site_view">サイトの紹介</a></li>
+    <li><a href="{{ url_for('Live') }}">ライブ配信</a></li>
+    <li><a href="{{ url_for('henshu') }}">動画編集</a></li>
+<li><a href="">閲覧履歴</a></li>
+        <li><a href="">設定</a></li>
+    <li><input type="text" class="form-control" width="300" id="hoge" name="kensaku" placeholder="動画のURL又はキーワードを入力してください"></li>
+<li><button class="btn-primary" type="submit">検索</button></li>
+</ul>
+
+<br>
+
+			<label for="r1">ニュース検索</label>
+			<input type="radio" id="r1" name="radio" value="ニュース">
+			<label for="r2">動画検索</label>
+			<input type="radio" id="r2" name="radio" checked value="動画">
+</form>
+
+
+
+
+{% if dou ==2 %}
+
+     <table class="table">
+              <thead>
+                    <th scope="col">サムネイル</th>
+                    <th scope="col">タイトル</th>
+                    <th scope="col">視聴</th>
+                    <th scope="col">登録日付</th>
+
+              </thead>
+  <tbody>
+            {% for title,image,chan,chaurl,videoid,customurls,views in data %}
+            <tr>
+                <td><iframe width="500" height="310" src=https://www.youtube.com/embed/{{videoid}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                <td><div id="title"><a href={{title}}>{{image}}</a></div></td>
+                <td><a href="{{ url_for('coment',vid=videoid) }}" class="btn btn-primary w-100 py-2">口コミ</a></td>
+                <td><a href="{{ url_for('shousai',id=videoid) }}" class="btn btn-primary w-100 py-2">詳細情報</a></td>
+            </tr>
+            {% endfor %}
+
+  </tbody>
+     </table>
+{% else %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">タイトル</th>
+      <th scope="col">日付</th>
+        <th scope="col">スマホ閲覧</th>
+        <th scope="col">書き込み</th>
+    </tr>
+  </thead>
+  <tbody>
+          {% for title,link,date in l %}
+<tr>
+    <td><a href={{link}}>{{title}}</a></td>
+    <td>{{date}}</td>
+    <td><a href="{{ url_for('QR',url=link) }}">QRコード</a></td>
+    <td><a href="{{ url_for('kakikomi',titles=title) }}" class="btn btn-primary w-100 py-2">書き込み</a></td>
+</tr>
+        {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+</body>
+</html>
